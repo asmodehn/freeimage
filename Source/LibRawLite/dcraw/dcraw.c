@@ -69,7 +69,10 @@
 #include <sys/utime.h>
 #include <winsock2.h>
 #pragma comment(lib, "ws2_32.lib")
+/* Visual Studio 2015 / VC 14 / MSVC 19.00 finally has snprintf() */
+#if defined(_MSC_VER) && (_MSC_VER < 1900)
 #define snprintf _snprintf
+#endif // _MSC_VER
 #define strcasecmp stricmp
 #define strncasecmp strnicmp
 //@end DEFINES
